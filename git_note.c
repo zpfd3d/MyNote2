@@ -19,7 +19,7 @@ branch:
 git checkout -b br2 //new and switch
 git checkout master
 git branch -d br2
-git push origin <branch>   br2-----------
+git push origin <branch>   br2-----------！！！！！
 git merge br2
 11
 [alias]
@@ -29,7 +29,8 @@ git merge br2
     br = branch
     unstage = reset HEAD --
     last = log -1 HEAD
-git clone /path/to/repository 	 !!!!!! git add *!!!
+git clone /path/to/repository 	 !!!!!! git add *!!! git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。
+
 git clone ../Note2
 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。
 working dir----(add)---index---(commit)---HEAD
