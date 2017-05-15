@@ -13,7 +13,7 @@ $ git config --global alias.br branch
 git config --global alias.last 'log -1'  
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 Git bash here ; vim  ~/.gitconfig
-a379039233z05  git push https://github.com/a379039233/MyNote2 Ô¶¶Ë²Ö¿â  git push origin master
+a379039233z05  git push https://github.com/a379039233/MyNote2 Ô¶¶Ë²Ö¿â  git push origin master  git push origin son
 git remote add origin <server>
 branch:
 git checkout -b br2 //new and switch
