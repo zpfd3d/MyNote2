@@ -1,11 +1,47 @@
-Git是目前世界上最先进的分布式版本控制系统（没有之一）。Linus
+Git是目前世界上最先进的分布式版本控制系统（没有之一）。Linus 开源
+clone init;
+add mv reset rm;Add file contents to the index 索引
+reset:      Reset current HEAD to the specified state
+rm: Remove files from the working tree and from the index
+ working tree,index ;
+  grep (global search regular expression(RE) and print out the line
+  仓库 --global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
+  git config --global alias.st status
+  git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+git config --global alias.last 'log -1'  
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+Git bash here ; vim  ~/.gitconfig
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+git clone /path/to/repository 	 !!!!!! git add *!!!
+git clone ../Note2
+你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。
+working dir----(add)---index---(commit)---HEAD
+(1)三种状态：Change, Staged, Commited。
+Change不用说了，你改动了一个，然后没有调用任何git命令，就是这种状态。
+之后，需要先Stage(声明)这个文件改动了，然后进入Staged状态。
+最后，再Commit，生成新的版本commit号。
+(2) git checkout 1.c ;恢复1.c    git checkout . 恢复所有文件 !!!!没有add        git  diff 1.c
+(2)处于Staged状态(已经Staging，还没有Commiting)
+先reset再checkout
+git reset HEAD ; git checkout . ;;;;
+
+
 1. 集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。
 必须联网才能工作
 首先，分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。
 ---git add -A: [<path>]表示把<path>中所有tracked文件中被修改过或已删除文件和所有untracted的文件信息添加到索引库。
 省略<path>表示.,即当前目录。
 ---git add -u [<path>]: 把<path>中所有tracked文件中被修改过或已删除文件的信息添加到索引库。它不会处理untracted的文件。
-
+git rm 1.txt
 2. 是否安装了：cmd git or git --version
 sudo apt-get install git
 ./config，make，sudo make install
