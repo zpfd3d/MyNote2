@@ -3,6 +3,7 @@ Git是目前世界上最先进的分布式版本控制系统（没有之一）。Linus 开源
 Add file contents to the index 索引
 reset:      Reset current HEAD to the specified state
 rm: Remove files from the working tree and from the index
+
 @ alias
 	grep (global search regular expression(RE) and print out the line
 	仓库 --global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
@@ -12,24 +13,32 @@ rm: Remove files from the working tree and from the index
 	git config --global alias.br branch
 	git config --global alias.last 'log -1'  
 	git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-	Git bash here ; vim  ~/.gitconfig
+	Git bash here ; 
+	vim  ~/.gitconfig !!!	 
+	
 @remote  a379039233z05
-git clone 
-git push https://github.com/a379039233/MyNote2 远端仓库  git push origin master  ; git push origin son
-git remote add origin <server>
+	git clone 
+	git push https://github.com/a379039233/MyNote2 远端仓库  git push origin master  ; git push origin son
+	git remote add origin <server>
+	git remote add origin ....git  ; git push origin master #push to github  Git 服务器搭建
+	
 @ branch:
-git checkout -b br2 //new and switch
-git checkout master
-git branch -d br2
-git push origin <branch>   br2-----------！！！！！
-git merge br2
-
+	git checkout -b br2 //new and switch
+	git checkout master
+	git branch -d br2
+	git push origin <branch>   br2-----------！！！！！
+	git merge br2
+	git branch test ...
+	git checkout test
+	git checkout master
+	git merge test
+	git branch -d test
 @ Important
- git clone /path/to/repository 	!!!
- git add *.c ;git add * !!!,git add .!!! 命令来添加当前项目的所有文件。
- git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。
- git rm file ... git clone ../Note2 !!! git status -s ;short comments;
- git log --oneline !!! 简单的一行log
+	git clone /path/to/repository 	!!!
+	git add *.c ;git add * !!!,git add .!!! 命令来添加当前项目的所有文件。
+	git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。
+	git rm file ... git clone ../Note2 !!! git status -s ;short comments;
+	git log --oneline !!! 简单的一行log
 @ 标签：
     git tag -a v1.0  ; git log --oneline --decorate --graph !!! git tag -a v0.9 85fc7e7(追加tag)  git tag； git tag -d v1.1
 @回退
@@ -38,14 +47,9 @@ git merge br2
 	git reset --hard 057d123   !!!
 	git reset –-hard HEAD
 	 
-  echo "test" >>1.txt 
-  git remote add origin ....git  ; git push origin master #push to github  Git 服务器搭建
-vim ~/.gitconfig !!! 
-git branch test
-git checkout test
-git checkout master
-git merge test
-git branch -d test
+   echo "test" >>1.txt 
+ 
+
  git config --list ; 查看配置
 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index or stage），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果。  更新树
 working dir----(add)---index---(commit)---HEAD   （.git下的HEAD文件）
