@@ -29,7 +29,10 @@ git merge br2
     br = branch
     unstage = reset HEAD --
     last = log -1 HEAD
-git clone /path/to/repository 	 !!!!!! git add *!!! git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。git rm file ... git clone ../Note2 !!!
+git clone /path/to/repository 	 !!!!!!
+ git add * ,git add . 命令来添加当前项目的所有文件。git add *.c!!! 
+ git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。
+ git rm file ... git clone ../Note2 !!!
 vim ~/.gitconfig !!! 
 git branch test
 git checkout test
@@ -41,13 +44,13 @@ git branch -d test
 working dir----(add)---index---(commit)---HEAD   （.git下的HEAD文件）
 (1)三种状态：Change, Staged, Commited。
 Change不用说了，你改动了一个，然后没有调用任何git命令，就是这种状态。
-之后，需要先Stage(声明)这个文件改动了，然后进入Staged状态。
+之后，需要先Stage(声明)这个文件改动了，然后进入Staged状态。testtt
 最后，再Commit，生成新的版本commit号。
 (2) git checkout 1.c ;恢复1.c    git checkout . 恢复所有文件 !!!!没有add        git  diff 1.c
 (2)处于Staged状态(已经Staging，还没有Commiting)
 先reset再checkout
 git reset HEAD ; git checkout . ;;;;
-
+git checkout HEAD .
 
 1. 集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。
 必须联网才能工作
