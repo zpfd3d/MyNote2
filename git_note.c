@@ -20,6 +20,8 @@ git checkout -b br2 //new and switch
 git checkout master
 git branch -d br2
 git push origin <branch>   br2-----------
+git merge br2
+
 [alias]
     st = status
     ci = commit
