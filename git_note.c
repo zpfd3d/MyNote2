@@ -1,38 +1,45 @@
 Git是目前世界上最先进的分布式版本控制系统（没有之一）。Linus 开源
-clone init;
-add mv reset rm;Add file contents to the index 索引
+
+Add file contents to the index 索引
 reset:      Reset current HEAD to the specified state
 rm: Remove files from the working tree and from the index
- working tree,index ;
-  grep (global search regular expression(RE) and print out the line
-  仓库 --global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
-  git config --global alias.st status
-  git config --global alias.co checkout
-$ git config --global alias.ci commit
-$ git config --global alias.br branch
-git config --global alias.last 'log -1'  
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-Git bash here ; vim  ~/.gitconfig
-a379039233z05  git push https://github.com/a379039233/MyNote2 远端仓库  git push origin master  git push origin son
+@ alias
+	grep (global search regular expression(RE) and print out the line
+	仓库 --global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
+	git config --global alias.st status
+	git config --global alias.co checkout
+	git config --global alias.ci commit
+	git config --global alias.br branch
+	git config --global alias.last 'log -1'  
+	git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	Git bash here ; vim  ~/.gitconfig
+@remote  a379039233z05
+git clone 
+git push https://github.com/a379039233/MyNote2 远端仓库  git push origin master  ; git push origin son
 git remote add origin <server>
-branch:
+@ branch:
 git checkout -b br2 //new and switch
 git checkout master
 git branch -d br2
 git push origin <branch>   br2-----------！！！！！
 git merge br2
-11
-[alias]
-    st = status
-    ci = commit
-    co = checkout
-    br = branch
-    unstage = reset HEAD --
-    last = log -1 HEAD
-git clone /path/to/repository 	 !!!!!!
- git add * ,git add . 命令来添加当前项目的所有文件。git add *.c!!! 
+
+@ Important
+ git clone /path/to/repository 	!!!
+ git add *.c ;git add * !!!,git add .!!! 命令来添加当前项目的所有文件。
  git commit -a -m "Changed some files"!!! 自动提交本地修改 千万注意，-a不会造成新文件被提交，只能修改。
- git rm file ... git clone ../Note2 !!!
+ git rm file ... git clone ../Note2 !!! git status -s ;short comments;
+ git log --oneline !!! 简单的一行log
+@ 标签：
+    git tag -a v1.0  ; git log --oneline --decorate --graph !!! git tag -a v0.9 85fc7e7(追加tag)  git tag； git tag -d v1.1
+@回退
+	git log --oneline
+	git reset HEAD^  //回退所有内容到上一个版本  
+	git reset --hard 057d123   !!!
+	git reset –-hard HEAD
+	 
+  echo "test" >>1.txt 
+  git remote add origin ....git  ; git push origin master #push to github  Git 服务器搭建
 vim ~/.gitconfig !!! 
 git branch test
 git checkout test
@@ -46,12 +53,18 @@ working dir----(add)---index---(commit)---HEAD   （.git下的HEAD文件）
 Change不用说了，你改动了一个，然后没有调用任何git命令，就是这种状态。
 之后，需要先Stage(声明)这个文件改动了，然后进入Staged状态。testtt
 最后，再Commit，生成新的版本commit号。
-(2) git checkout 1.c ;恢复1.c    git checkout . 恢复所有文件 !!!!没有add        git  diff 1.c
+(2) git checkout 1.c ;恢复1.c    git checkout . 恢复所有文件 !!! 没有add        git  diff 1.c
 (2)处于Staged状态(已经Staging，还没有Commiting)
 先reset再checkout
 git reset HEAD ; git checkout . ;;;;
 git checkout HEAD .
-
+git diff 命令显示已写入缓存与已修改但尚未写入缓存的改动的区别。
+尚未缓存的改动：git diff
+查看已缓存的改动： git diff --cached
+查看已缓存的与未缓存的所有改动：git diff HEAD
+当执行 "git reset HEAD" 命令时，暂存区的目录树会被重写，工作区不受影响。
+当执行 "git checkout ." 或者 "git checkout -- <file>" 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。
+当执行 "git checkout HEAD ." 或者 "git checkout HEAD <file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
 1. 集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。
 必须联网才能工作
 首先，分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。
@@ -66,8 +79,8 @@ sudo apt-get install git
 git config user.name 
 git config user.name
 添加或修改：
-git config --global user.name "hundun"
-git config --global user.email "379039233@qq.com"
+git config --global user.name "hundun" !!!
+git config --global user.email "379039233@qq.com" !!!
 4. git init（创建仓库）;git add ...;git commit -m "commit"
 .git的目录 所有的版本控制系统，其实只能跟踪文本文件的改动。不幸的是，Microsoft的Word格式是二进制格式
 千万不要使用Windows自带的记事本编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。
@@ -94,7 +107,7 @@ git reflog //记录你的每一次命令
 删除文件:
 git rm test.txt
 git commit -m "remove test.txt"
-8. git clone ....git
+8. 
 分支：
  git checkout -b dev ;create and switch: git branch dev and git checkout dev
  git branch ;查看当前分支
